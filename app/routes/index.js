@@ -4,12 +4,13 @@ import {
     Switch,
     Redirect
 } from 'react-router';
+import { ProtectedRoute } from './../components/Auth';
 
 // ----------- Pages Imports ---------------
 import Analytics from './Dashboards/Analytics';
 import ProjectsDashboard from './Dashboards/Projects';
 import System from './Dashboards/System';
-import Monitor from './Dashboards/Monitor'; 
+import Monitor from './Dashboards/Monitor';
 import Financial from './Dashboards/Financial';
 import Stock from './Dashboards/Stock';
 import Reports from './Dashboards/Reports';
@@ -115,155 +116,155 @@ export const RoutedContent = () => {
     return (
         <Switch>
             <Redirect from="/" to="/dashboards/projects" exact />
-            
-            <Route path="/dashboards/analytics" exact component={Analytics} />
-            <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
-            <Route path="/dashboards/system" exact component={System} />
-            <Route path="/dashboards/monitor" exact component={Monitor} />
-            <Route path="/dashboards/financial" exact component={Financial} />
-            <Route path="/dashboards/stock" exact component={Stock} />
-            <Route path="/dashboards/reports" exact component={Reports} />
 
-            <Route path='/widgets' exact component={Widgets} />
-            
-            { /*    Cards Routes     */ }
-            <Route path='/cards/cards' exact component={Cards} />
-            <Route path='/cards/cardsheaders' exact component={CardsHeaders} />
-            
-            { /*    Layouts     */ }
-            <Route path='/layouts/navbar' component={NavbarOnly} />
-            <Route path='/layouts/sidebar' component={SidebarDefault} />
-            <Route path='/layouts/sidebar-a' component={SidebarA} />
-            <Route path="/layouts/sidebar-with-navbar" component={SidebarWithNavbar} />
-            <Route path='/layouts/dnd-layout' component={DragAndDropLayout} />
+            <ProtectedRoute path="/dashboards/analytics" exact component={Analytics} />
+            <ProtectedRoute path="/dashboards/projects" exact component={ProjectsDashboard} />
+            <ProtectedRoute path="/dashboards/system" exact component={System} />
+            <ProtectedRoute path="/dashboards/monitor" exact component={Monitor} />
+            <ProtectedRoute path="/dashboards/financial" exact component={Financial} />
+            <ProtectedRoute path="/dashboards/stock" exact component={Stock} />
+            <ProtectedRoute path="/dashboards/reports" exact component={Reports} />
 
-            { /*    Interface Routes   */ }
-            <Route component={ Accordions } path="/interface/accordions" />
-            <Route component={ Alerts } path="/interface/alerts" />
-            <Route component={ Avatars } path="/interface/avatars" />
-            <Route component={ BadgesLabels } path="/interface/badges-and-labels" />
-            <Route component={ Breadcrumbs } path="/interface/breadcrumbs" />
-            <Route component={ Buttons } path="/interface/buttons" />
-            <Route component={ Colors } path="/interface/colors" />
-            <Route component={ Dropdowns } path="/interface/dropdowns" />
-            <Route component={ Images } path="/interface/images" />
-            <Route component={ ListGroups } path="/interface/list-groups" />
-            <Route component={ MediaObjects } path="/interface/media-objects" />
-            <Route component={ Modals } path="/interface/modals" />
-            <Route component={ Navbars } path="/interface/navbars" />
-            <Route component={ Paginations } path="/interface/paginations" />
-            <Route component={ ProgressBars } path="/interface/progress-bars" />
-            <Route component={ TabsPills } path="/interface/tabs-pills" />
-            <Route component={ TooltipPopovers } path="/interface/tooltips-and-popovers" />
-            <Route component={ Typography } path="/interface/typography" />
-            <Route component={ Notifications } path="/interface/notifications" />
-            <Route component={ CropImage } path="/interface/crop-image" />
-            <Route component={ DragAndDropElements } path="/interface/drag-and-drop-elements" />
-            <Route component={ Calendar } path="/interface/calendar" />
+            <ProtectedRoute path='/widgets' exact component={Widgets} />
 
-            { /*    Forms Routes    */ }
-            <Route component={ Forms } path="/forms/forms" />
-            <Route component={ FormsLayouts } path="/forms/forms-layouts" />
-            <Route component={ InputGroups } path="/forms/input-groups" />
-            <Route component={ Wizard } path="/forms/wizard" />
-            <Route component={ TextMask } path="/forms/text-mask" />
-            <Route component={ Typeahead } path="/forms/typeahead" />
-            <Route component={ Toggles } path="/forms/toggles" />
-            <Route component={ Editor } path="/forms/editor" />
-            <Route component={ DatePicker } path="/forms/date-picker" />
-            <Route component={ Dropzone } path="/forms/dropzone" />
-            <Route component={ Sliders } path="/forms/sliders" />
-            
-            { /*    Graphs Routes   */ }
-            <Route component={ ReCharts } path="/graphs/re-charts" />
+            { /*    Cards Routes     */}
+            <ProtectedRoute path='/cards/cards' exact component={Cards} />
+            <ProtectedRoute path='/cards/cardsheaders' exact component={CardsHeaders} />
 
-            { /*    Tables Routes   */ }
-            <Route component={ Tables } path="/tables/tables" />
-            <Route component={ ExtendedTable } path="/tables/extended-table" />
-            <Route component={ AgGrid } path="/tables/ag-grid" />
+            { /*    Layouts     */}
+            <ProtectedRoute path='/layouts/navbar' component={NavbarOnly} />
+            <ProtectedRoute path='/layouts/sidebar' component={SidebarDefault} />
+            <ProtectedRoute path='/layouts/sidebar-a' component={SidebarA} />
+            <ProtectedRoute path="/layouts/sidebar-with-navbar" component={SidebarWithNavbar} />
+            <ProtectedRoute path='/layouts/dnd-layout' component={DragAndDropLayout} />
 
-            { /*    Apps Routes     */ }
-            <Route component={ AccountEdit } path="/apps/account-edit" />
-            <Route component={ BillingEdit } path="/apps/billing-edit" />
-            <Route component={ Chat } path="/apps/chat" />
-            <Route component={ Clients } path="/apps/clients" />
-            <Route component={ EmailDetails } path="/apps/email-details" />
-            <Route component={ Files } path="/apps/files/:type"/>
-            <Route component={ GalleryGrid } path="/apps/gallery-grid" />
-            <Route component={ GalleryTable } path="/apps/gallery-table" />
-            <Route component={ ImagesResults } path="/apps/images-results" />
-            <Route component={ Inbox } path="/apps/inbox" />
-            <Route component={ NewEmail } path="/apps/new-email" />
-            <Route component={ ProfileDetails } path="/apps/profile-details" />
-            <Route component={ ProfileEdit } path="/apps/profile-edit" />
-            <Route component={ Projects } path="/apps/projects/:type" />
-            <Route component={ SearchResults } path="/apps/search-results" />
-            <Route component={ SessionsEdit } path="/apps/sessions-edit" />
-            <Route component={ SettingsEdit } path="/apps/settings-edit" />
-            <Route component={ Tasks } path="/apps/tasks/:type" />
-            <Route component={ TasksDetails } path="/apps/task-details" />
-            <Route component={ TasksKanban } path="/apps/tasks-kanban" />
-            <Route component={ Users } path="/apps/users/:type" />
-            <Route component={ UsersResults } path="/apps/users-results" />
-            <Route component={ VideosResults } path="/apps/videos-results" />
+            { /*    Interface Routes   */}
+            <ProtectedRoute component={Accordions} path="/interface/accordions" />
+            <ProtectedRoute component={Alerts} path="/interface/alerts" />
+            <ProtectedRoute component={Avatars} path="/interface/avatars" />
+            <ProtectedRoute component={BadgesLabels} path="/interface/badges-and-labels" />
+            <ProtectedRoute component={Breadcrumbs} path="/interface/breadcrumbs" />
+            <ProtectedRoute component={Buttons} path="/interface/buttons" />
+            <ProtectedRoute component={Colors} path="/interface/colors" />
+            <ProtectedRoute component={Dropdowns} path="/interface/dropdowns" />
+            <ProtectedRoute component={Images} path="/interface/images" />
+            <ProtectedRoute component={ListGroups} path="/interface/list-groups" />
+            <ProtectedRoute component={MediaObjects} path="/interface/media-objects" />
+            <ProtectedRoute component={Modals} path="/interface/modals" />
+            <ProtectedRoute component={Navbars} path="/interface/navbars" />
+            <ProtectedRoute component={Paginations} path="/interface/paginations" />
+            <ProtectedRoute component={ProgressBars} path="/interface/progress-bars" />
+            <ProtectedRoute component={TabsPills} path="/interface/tabs-pills" />
+            <ProtectedRoute component={TooltipPopovers} path="/interface/tooltips-and-popovers" />
+            <ProtectedRoute component={Typography} path="/interface/typography" />
+            <ProtectedRoute component={Notifications} path="/interface/notifications" />
+            <ProtectedRoute component={CropImage} path="/interface/crop-image" />
+            <ProtectedRoute component={DragAndDropElements} path="/interface/drag-and-drop-elements" />
+            <ProtectedRoute component={Calendar} path="/interface/calendar" />
 
-            { /*    Pages Routes    */ }
-            <Route component={ ComingSoon } path="/pages/coming-soon" />
-            <Route component={ Confirmation } path="/pages/confirmation" />
-            <Route component={ Danger } path="/pages/danger" />
-            <Route component={ Error404 } path="/pages/error-404" />
-            <Route component={ ForgotPassword } path="/pages/forgot-password" />
-            <Route component={ LockScreen } path="/pages/lock-screen" />
-            <Route component={ Login } path="/pages/login" />
-            <Route component={ Register } path="/pages/register" />
-            <Route component={ Success } path="/pages/success" />
-            <Route component={ Timeline } path="/pages/timeline" />
+            { /*    Forms Routes    */}
+            <ProtectedRoute component={Forms} path="/forms/forms" />
+            <ProtectedRoute component={FormsLayouts} path="/forms/forms-layouts" />
+            <ProtectedRoute component={InputGroups} path="/forms/input-groups" />
+            <ProtectedRoute component={Wizard} path="/forms/wizard" />
+            <ProtectedRoute component={TextMask} path="/forms/text-mask" />
+            <ProtectedRoute component={Typeahead} path="/forms/typeahead" />
+            <ProtectedRoute component={Toggles} path="/forms/toggles" />
+            <ProtectedRoute component={Editor} path="/forms/editor" />
+            <ProtectedRoute component={DatePicker} path="/forms/date-picker" />
+            <ProtectedRoute component={Dropzone} path="/forms/dropzone" />
+            <ProtectedRoute component={Sliders} path="/forms/sliders" />
 
-            <Route path='/icons' exact component={Icons} />
+            { /*    Graphs Routes   */}
+            <ProtectedRoute component={ReCharts} path="/graphs/re-charts" />
 
-            { /*    404    */ }
+            { /*    Tables Routes   */}
+            <ProtectedRoute component={Tables} path="/tables/tables" />
+            <ProtectedRoute component={ExtendedTable} path="/tables/extended-table" />
+            <ProtectedRoute component={AgGrid} path="/tables/ag-grid" />
+
+            { /*    Apps Routes     */}
+            <ProtectedRoute component={AccountEdit} path="/apps/account-edit" />
+            <ProtectedRoute component={BillingEdit} path="/apps/billing-edit" />
+            <ProtectedRoute component={Chat} path="/apps/chat" />
+            <ProtectedRoute component={Clients} path="/apps/clients" />
+            <ProtectedRoute component={EmailDetails} path="/apps/email-details" />
+            <ProtectedRoute component={Files} path="/apps/files/:type" />
+            <ProtectedRoute component={GalleryGrid} path="/apps/gallery-grid" />
+            <ProtectedRoute component={GalleryTable} path="/apps/gallery-table" />
+            <ProtectedRoute component={ImagesResults} path="/apps/images-results" />
+            <ProtectedRoute component={Inbox} path="/apps/inbox" />
+            <ProtectedRoute component={NewEmail} path="/apps/new-email" />
+            <ProtectedRoute component={ProfileDetails} path="/apps/profile-details" />
+            <ProtectedRoute component={ProfileEdit} path="/apps/profile-edit" />
+            <ProtectedRoute component={Projects} path="/apps/projects/:type" />
+            <ProtectedRoute component={SearchResults} path="/apps/search-results" />
+            <ProtectedRoute component={SessionsEdit} path="/apps/sessions-edit" />
+            <ProtectedRoute component={SettingsEdit} path="/apps/settings-edit" />
+            <ProtectedRoute component={Tasks} path="/apps/tasks/:type" />
+            <ProtectedRoute component={TasksDetails} path="/apps/task-details" />
+            <ProtectedRoute component={TasksKanban} path="/apps/tasks-kanban" />
+            <ProtectedRoute component={Users} path="/apps/users/:type" />
+            <ProtectedRoute component={UsersResults} path="/apps/users-results" />
+            <ProtectedRoute component={VideosResults} path="/apps/videos-results" />
+
+            { /*    Pages Routes    */}
+            <ProtectedRoute component={ComingSoon} path="/pages/coming-soon" />
+            <ProtectedRoute component={Confirmation} path="/pages/confirmation" />
+            <ProtectedRoute component={Danger} path="/pages/danger" />
+            <ProtectedRoute component={Error404} path="/pages/error-404" />
+            <ProtectedRoute component={ForgotPassword} path="/pages/forgot-password" />
+            <ProtectedRoute component={LockScreen} path="/pages/lock-screen" />
+            <ProtectedRoute component={Login} path="/pages/login" />
+            <ProtectedRoute component={Register} path="/pages/register" />
+            <ProtectedRoute component={Success} path="/pages/success" />
+            <ProtectedRoute component={Timeline} path="/pages/timeline" />
+
+            <ProtectedRoute path='/icons' exact component={Icons} />
+
+            { /*    404    */}
             <Redirect to="/pages/error-404" />
         </Switch>
     );
 };
 
 //------ Custom Layout Parts --------
-export const RoutedNavbars  = () => (
+export const RoutedNavbars = () => (
     <Switch>
         { /* Other Navbars: */}
-        <Route
-            component={ SidebarANavbar }
+        <ProtectedRoute
+            component={SidebarANavbar}
             path="/layouts/sidebar-a"
         />
-        <Route
-            component={ NavbarOnly.Navbar }
+        <ProtectedRoute
+            component={NavbarOnly.Navbar}
             path="/layouts/navbar"
         />
-        <Route
-            component={ SidebarWithNavbar.Navbar }
+        <ProtectedRoute
+            component={SidebarWithNavbar.Navbar}
             path="/layouts/sidebar-with-navbar"
         />
         { /* Default Navbar: */}
-        <Route
-            component={ DefaultNavbar }
+        <ProtectedRoute
+            component={DefaultNavbar}
         />
-    </Switch>  
+    </Switch>
 );
 
 export const RoutedSidebars = () => (
     <Switch>
         { /* Other Sidebars: */}
-        <Route
-            component={ SidebarASidebar }
+        <ProtectedRoute
+            component={SidebarASidebar}
             path="/layouts/sidebar-a"
         />
-        <Route
-            component={ SidebarWithNavbar.Sidebar }
+        <ProtectedRoute
+            component={SidebarWithNavbar.Sidebar}
             path="/layouts/sidebar-with-navbar"
         />
         { /* Default Sidebar: */}
-        <Route
-            component={ DefaultSidebar }
+        <ProtectedRoute
+            component={DefaultSidebar}
         />
     </Switch>
 );

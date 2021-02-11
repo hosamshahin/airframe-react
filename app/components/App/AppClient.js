@@ -1,19 +1,22 @@
 import React from 'react';
 import { hot } from 'react-hot-loader'
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { useAuth0 } from '@hosamshahin/auth0-react';
+import { Loading } from './../Auth';
 import AppLayout from './../../layout/default';
 import { RoutedContent } from './../../routes';
 
-const basePath = process.env.BASE_PATH || '/';
-
 const AppClient = () => {
+    const { isLoading } = useAuth0();
+
+    if (isLoading) {
+        return <Loading />;
+    }
+
     return (
-        <Router basename={ basePath }>
-            <AppLayout>
-                <RoutedContent />
-            </AppLayout>
-        </Router>
+        <AppLayout>
+            <RoutedContent />
+        </AppLayout>
+
     );
 }
 
